@@ -213,6 +213,27 @@ document.addEventListener('DOMContentLoaded', function() {
         
         item.addEventListener('touchend', function() {
             this.style.transform = 'scale(1)';
+
+            // Form submission handling
+const contactForm = document.getElementById('contactForm');
+
+if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+        // Show loading state
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = 'Sending...';
+        submitBtn.disabled = true;
+        
+        // Form will be submitted to Formspree automatically
+        // Re-enable button after 5 seconds in case of error
+        setTimeout(() => {
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+        }, 5000);
+    });
+}
         });
     });
 });
+
