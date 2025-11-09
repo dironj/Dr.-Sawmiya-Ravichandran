@@ -7,6 +7,9 @@ document.addEventListener('DOMContentLoaded', function() {
         hamburger.addEventListener('click', function() {
             hamburger.classList.toggle('active');
             navMenu.classList.toggle('active');
+            
+            // Prevent background scroll when menu is open
+            document.body.style.overflow = this.classList.contains('active') ? 'hidden' : '';
         });
     }
     
@@ -16,7 +19,22 @@ document.addEventListener('DOMContentLoaded', function() {
         link.addEventListener('click', function() {
             hamburger.classList.remove('active');
             navMenu.classList.remove('active');
+            document.body.style.overflow = '';
         });
+    });
+    
+    // Close mobile menu when tapping outside
+    document.addEventListener('click', function(e) {
+        const navMenu = document.querySelector('.nav-menu');
+        const hamburger = document.querySelector('.hamburger');
+        
+        if (navMenu.classList.contains('active') && 
+            !e.target.closest('.nav-menu') && 
+            !e.target.closest('.hamburger')) {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        }
     });
     
     // Navbar scroll effect
@@ -183,6 +201,18 @@ document.addEventListener('DOMContentLoaded', function() {
                 e.preventDefault();
                 window.open(this.href, '_blank');
             }
+        });
+    });
+    
+    // Improve touch experience for skill bars
+    const skillItems = document.querySelectorAll('.skill-item');
+    skillItems.forEach(item => {
+        item.addEventListener('touchstart', function() {
+            this.style.transform = 'scale(0.98)';
+        });
+        
+        item.addEventListener('touchend', function() {
+            this.style.transform = 'scale(1)';
         });
     });
 });
