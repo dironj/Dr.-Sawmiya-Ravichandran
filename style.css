@@ -1009,7 +1009,7 @@ h1, h2, h3, h4, h5 {
     }
 }
 
-/* Responsive Design */
+/* Enhanced Mobile Responsiveness */
 @media (max-width: 992px) {
     .hero-container {
         grid-template-columns: 1fr;
@@ -1059,7 +1059,7 @@ h1, h2, h3, h4, h5 {
     .nav-menu {
         position: fixed;
         left: -100%;
-        top: 70px;
+        top: 80px;
         gap: 0;
         flex-direction: column;
         background-color: white;
@@ -1068,6 +1068,8 @@ h1, h2, h3, h4, h5 {
         transition: 0.3s;
         box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
         padding: 20px 0;
+        height: calc(100vh - 80px);
+        overflow-y: auto;
     }
     
     .nav-menu.active {
@@ -1076,6 +1078,15 @@ h1, h2, h3, h4, h5 {
     
     .nav-item {
         margin: 15px 0;
+    }
+    
+    .nav-link {
+        padding: 12px 0;
+        font-size: 1.1rem;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
     
     .hero-title {
@@ -1106,39 +1117,181 @@ h1, h2, h3, h4, h5 {
         height: 50px;
         font-size: 1.2rem;
     }
+    
+    /* Improved mobile navigation */
+    .nav-menu {
+        top: 80px;
+        padding: 15px 0;
+    }
+    
+    /* Improve text readability */
+    .hero-title {
+        font-size: 2.2rem;
+        line-height: 1.2;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.3rem;
+    }
+    
+    .section-title {
+        font-size: 2.2rem;
+    }
+    
+    /* Better touch targets */
+    .btn {
+        padding: 14px 28px;
+        min-height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    /* Improve spacing */
+    .hero {
+        padding: 120px 0 50px;
+    }
+    
+    section {
+        padding: 80px 0;
+    }
+    
+    /* Timeline adjustments */
+    .timeline::before {
+        left: 20px;
+    }
+    
+    .timeline-marker {
+        width: 40px;
+    }
+    
+    .timeline-content {
+        padding-left: 20px;
+    }
+    
+    /* Contact form improvements */
+    .contact-form {
+        padding: 20px;
+    }
+    
+    .form-group input, 
+    .form-group textarea {
+        font-size: 16px; /* Prevents zoom on iOS */
+    }
+    
+    /* Floating elements adjustment */
+    .floating-element {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+    
+    .element-1 {
+        right: 5%;
+    }
+    
+    .element-2 {
+        left: 5%;
+    }
+    
+    /* Education items */
+    .education-item {
+        padding: 15px;
+        background: var(--background-alt);
+        border-radius: 10px;
+        margin-bottom: 20px;
+    }
+    
+    /* Research cards */
+    .research-card {
+        padding: 20px;
+    }
+    
+    /* Skills section */
+    .skill-item {
+        margin-bottom: 15px;
+    }
 }
 
 @media (max-width: 576px) {
     .container {
-        padding: 0 15px;
+        padding: 0 10px;
     }
     
     .hero-title {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
     
     .hero-subtitle {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
     }
     
     .profile-image {
-        width: 250px;
-        height: 320px;
+        width: 220px;
+        height: 280px;
     }
     
-    .research-grid {
-        grid-template-columns: 1fr;
+    /* Interest tags */
+    .interest-tags {
+        justify-content: center;
     }
     
-    .skills-container {
-        grid-template-columns: 1fr;
+    .interest-tag {
+        font-size: 0.8rem;
+        padding: 6px 12px;
     }
     
-    .education-item {
+    /* Technique tags */
+    .technique-tag {
+        font-size: 0.75rem;
+        padding: 4px 8px;
+    }
+    
+    /* Hero buttons stack */
+    .hero-buttons {
         flex-direction: column;
+        width: 100%;
+        max-width: 300px;
+        margin-left: auto;
+        margin-right: auto;
     }
     
-    .edu-icon {
-        margin-bottom: 10px;
+    .hero-buttons .btn {
+        width: 100%;
     }
+    
+    /* Footer adjustments */
+    .footer-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+    
+    .footer-social {
+        justify-content: center;
+    }
+}
+
+/* Prevent horizontal scrolling */
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Improve scrolling performance */
+* {
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Better focus states for accessibility */
+.btn:focus,
+.nav-link:focus,
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
 }
